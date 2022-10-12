@@ -1,4 +1,7 @@
 .nav {
   display: flex;
   justify-content: flex-end;
+  padding: 10px;
+  cursor: pointer;
+  text-decoration: underline;
 }/*# sourceMappingURL=navigation.css.map */
