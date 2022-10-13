@@ -2,6 +2,7 @@
  import './App.css'
  import Navigation from '../src/components/navigation/navigation' 
 import Logo from './components/logo/logo.component';
+import ImageLinkForm from './components/imagelinkform/imagelinkform';
 
 
 const App = ()=>{
@@ -9,6 +10,7 @@ const App = ()=>{
     <div>
        <Navigation />
        <Logo />
+       <ImageLinkForm />
     </div>
   )
 }
