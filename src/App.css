@@ -1,7 +1,7 @@
 body{
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: 'Fira Sans Condensed', sans-serif;
     background: linear-gradient(89deg, #ff5edd 0%, #04c8DE 100%);
 }
 

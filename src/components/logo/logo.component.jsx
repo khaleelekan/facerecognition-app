@@ -5,9 +5,9 @@ import Tilt from 'react-parallax-tilt';
 
 const Logo = () => {
     return(
-           <Tilt>      
+           <Tilt className="tilt">      
             <div className="logo">
-           <img src="/images/face.png" alt="logo" width="150" height="150" />
+           <img src="/images/face.png" alt="logo" width="100" height="100" />
             </div>
              </Tilt>
      
