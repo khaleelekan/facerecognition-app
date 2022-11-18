@@ -1,20 +1,33 @@
- import React from 'react';
+ import React, { Component } from 'react';
  import './App.css'
  import Navigation from '../src/components/navigation/navigation' 
 import Logo from './components/logo/logo.component';
 import Rank from './components/Rank/rank.component'
 import ImageLinkForm from './components/imagelinkform/imagelinkform';
 
+class App extends Component{
+  constructor(){
+    super();
 
-const App = ()=>{
-  return(
+    this.state={
+      input : '',
+    }
+  
+  }
+   onInputChange = (event) => {
+    console.log(event.target.value)
+ }
+
+  return()
+  {
     <div>
        <Navigation />
        <Logo />
        <Rank />
-       <ImageLinkForm />
+       <ImageLinkForm onInputChange={this.onInputChange} />
     </div>
-  )
+  
+  }
 }
 
 export default App;
