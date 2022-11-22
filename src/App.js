@@ -1,6 +1,7 @@
  import React, { Component } from 'react';
  import './App.css'
  import Navigation from '../src/components/navigation/navigation' 
+ import SignIn from '../src/components/Signin/Signin' 
  import Logo from './components/logo/logo.component';
  import Rank from './components/Rank/rank.component'
  import ImageLinkForm from './components/imagelinkform/imagelinkform';
@@ -11,11 +12,17 @@ class App extends Component{
 
     this.state={
       input : '',
+      route: 'signin'
     }
   
   }
    onInputChange = (event) => {
    console.log(event.target.value)
+
+ }
+
+ onRouteChange = (route)=>{
+   this.setState({route: route})
  }
   onSubmit = () => {
     console.log('just clicked')
@@ -29,7 +36,7 @@ const raw = JSON.stringify({
       {
           "data": {
               "image": {
-                  "url": {IMAGE_URL}
+                //  "url": {IMAGE_URL}
               }
           }
       }
@@ -40,7 +47,7 @@ const requestOptions = {
     method: 'POST',
     headers: {
         'Accept': 'application/json',
-        'Authorization': 'Key ' + {1b2c4e57a4e14a97a6ef5c5da55ce1cc}
+        'Authorization': 'Key ' //+ {1b2c4e57a4e14a97a6ef5c5da55ce1cc}
     },
     body: raw
 };
@@ -59,10 +66,17 @@ fetch(`https://api.clarifai.com/v2/models/face-detection/versions/6dc7e46bc9124c
   render(){
     return(
     <div>
-       <Navigation />
-       <Logo />
-       <Rank />
-    <ImageLinkForm onInputChange={this.onInputChange} onSubmit={this.onSubmit} /> 
+       <Navigation onRouteChange={this.onRouteChange}/>
+       {this.state.route === 'signin'
+       ?
+       <SignIn onRouteChange={this.onRouteChange}/>
+      :
+       <div>
+        <Logo />
+        <Rank />
+        <ImageLinkForm onInputChange={this.onInputChange} onSubmit={this.onSubmit} /> 
+       </div>
+      }
     </div>
     )
   }
