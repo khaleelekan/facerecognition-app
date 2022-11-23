@@ -2,6 +2,7 @@
  import './App.css'
  import Navigation from '../src/components/navigation/navigation' 
  import SignIn from '../src/components/Signin/Signin' 
+ //import Register from '../src/components/Register/register'
  import Logo from './components/logo/logo.component';
  import Rank from './components/Rank/rank.component'
  import ImageLinkForm from './components/imagelinkform/imagelinkform';
