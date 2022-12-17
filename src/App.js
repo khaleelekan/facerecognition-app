@@ -2,7 +2,7 @@
  import './App.css'
  import Navigation from '../src/components/navigation/navigation' 
  import SignIn from '../src/components/Signin/Signin' 
- //import Register from '../src/components/Register/register'
+ import Register from '../src/components/Register/register'
  import Logo from './components/logo/logo.component';
  import Rank from './components/Rank/rank.component'
  import ImageLinkForm from './components/imagelinkform/imagelinkform';
@@ -13,7 +13,8 @@ class App extends Component{
 
     this.state={
       input : '',
-      route: 'signin'
+      route: 'signin',
+      isSignedIn: false
     }
   
   }
@@ -23,6 +24,11 @@ class App extends Component{
  }
 
  onRouteChange = (route)=>{
+  if(route === 'signout'){
+    this.setState({isSignedIn: false})
+  }else if(route === 'home'){
+    this.setState({isSignedIn: true})
+  }
    this.setState({route: route})
  }
   onSubmit = () => {
@@ -65,18 +71,19 @@ fetch(`https://api.clarifai.com/v2/models/face-detection/versions/6dc7e46bc9124c
   }
 
   render(){
+    const {isSignedIn, route } = this.state;
     return(
     <div>
-       <Navigation onRouteChange={this.onRouteChange}/>
-       {this.state.route === 'signin'
-       ?
-       <SignIn onRouteChange={this.onRouteChange}/>
-      :
-       <div>
-        <Logo />
-        <Rank />
-        <ImageLinkForm onInputChange={this.onInputChange} onSubmit={this.onSubmit} /> 
-       </div>
+       <Navigation isSignedIn={isSignedIn} onRouteChange={this.onRouteChange}/>
+       {route === 'home'
+       ? <div>
+       <Logo />
+       <Rank />
+       <ImageLinkForm onInputChange={this.onInputChange} onSubmit={this.onSubmit} /> 
+      </div>
+      :( route === 'signin' ? <SignIn onRouteChange={this.onRouteChange}/>:
+       <Register onRouteChange={this.onRouteChange}/>)
+      
       }
     </div>
     )
