@@ -4,4 +4,9 @@
   padding: 10px;
   cursor: pointer;
   text-decoration: underline;
+  padding-right: 10px;
+  margin: 5px;
+}
+.nav .signin {
+  margin-right: 10px;
 }/*# sourceMappingURL=navigation.css.map */

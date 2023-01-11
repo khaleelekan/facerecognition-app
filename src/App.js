@@ -70,6 +70,12 @@ fetch(`https://api.clarifai.com/v2/models/face-detection/versions/6dc7e46bc9124c
   
   }
 
+  componentDidMount(){
+    fetch('http://localhost:3000/')
+    .then(response => response.json())
+    .then(console.log)
+  }
+
   render(){
     const {isSignedIn, route } = this.state;
     return(
