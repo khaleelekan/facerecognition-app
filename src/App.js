@@ -14,13 +14,31 @@ class App extends Component{
     this.state={
       input : '',
       route: 'signin',
-      isSignedIn: false
+      isSignedIn: false,
+      user:{
+        id:'',
+        username: '',
+        email: '',
+        entries: 0,
+        joined: ''
+      }
     }
   
   }
    onInputChange = (event) => {
    console.log(event.target.value)
 
+ }
+ loaduser = (data) => {
+  this.setState({
+    user:{
+      id: data.id,
+      username: data.username,
+      email: data.email,
+      entries: data.entries,
+      joined: data.joined
+    }
+  })
  }
 
  onRouteChange = (route)=>{
@@ -88,7 +106,7 @@ fetch(`https://api.clarifai.com/v2/models/face-detection/versions/6dc7e46bc9124c
        <ImageLinkForm onInputChange={this.onInputChange} onSubmit={this.onSubmit} /> 
       </div>
       :( route === 'signin' ? <SignIn onRouteChange={this.onRouteChange}/>:
-       <Register onRouteChange={this.onRouteChange}/>)
+       <Register loaduser={this.loaduser} onRouteChange={this.onRouteChange}/>)
       
       }
     </div>

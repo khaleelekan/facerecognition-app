@@ -5,8 +5,9 @@
 .search-area {
   display: flex;
   justify-content: center;
-  margin: 5px 400px;
+  margin: auto;
   padding: 5px 5px;
+  width: 50%;
   border-radius: 5px;
   background-color: #6d695c;
   background-image: repeating-linear-gradient(120deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1) 1px, transparent 1px, transparent 60px), repeating-linear-gradient(60deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1) 1px, transparent 1px, transparent 60px), linear-gradient(60deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%, transparent 75%, rgba(0, 0, 0, 0.1) 75%, rgba(0, 0, 0, 0.1)), linear-gradient(120deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%, transparent 75%, rgba(0, 0, 0, 0.1) 75%, rgba(0, 0, 0, 0.1));
@@ -20,6 +21,6 @@
   background-color: plum;
   color: white;
   border: none;
-  padding: 5px 40px;
-  width: 30%;
+  padding: auto;
+  width: 20%;
 }/*# sourceMappingURL=imagelinkform.css.map */
